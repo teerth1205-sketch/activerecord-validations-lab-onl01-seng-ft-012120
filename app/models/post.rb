@@ -8,12 +8,12 @@ class Post < ActiveRecord::Base
  
  def is_clickbait
   
-   if reqs.detect {|phrase| self.title.include?(phrase)}.nil?
+   if @@reqs.detect {|phrase| self.title.include?(phrase)}.nil?
      self.errors[:title] << "Need a beter title"
       
    end 
    
  end 
  
-reqs = ["Won't Believe", "Secret", "Top[number]", "Guess"]
+@@reqs = ["Won't Believe", "Secret", "Top[number]", "Guess"]
 end
