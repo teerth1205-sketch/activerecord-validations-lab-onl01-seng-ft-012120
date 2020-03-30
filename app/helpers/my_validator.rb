@@ -9,7 +9,6 @@ class MyValidator < ActiveModel::Validator
    
  end 
  
-@@reqs = ["Won't Believe", "Secret", "Top[number]", "Guess"]
   
   
   
