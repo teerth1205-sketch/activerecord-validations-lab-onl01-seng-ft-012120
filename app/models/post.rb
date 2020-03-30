@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
  
  def is_clickbait
   valid = false
-   if @@phrases.each {|phrase| self.title =~ phrase} 
+   if @@phrases.each {|phrase| self.title && self.title.downcase =~ phrase} 
      valid = true
    else 
      errors[:title] << "Need a beter title"
