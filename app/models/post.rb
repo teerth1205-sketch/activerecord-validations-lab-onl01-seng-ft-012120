@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
    if @@phrases.each {|phrase| self.title && self.title.downcase =~ phrase} 
       return true
    else 
+     return false
      self.errors[:title] << "Need a beter title"
    end 
    
