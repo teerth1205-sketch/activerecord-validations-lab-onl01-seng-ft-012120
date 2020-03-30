@@ -6,14 +6,4 @@ class Post < ActiveRecord::Base
     validates_with MyValidator
 
  
- def is_clickbait(record)
-  
-   if @@reqs.detect {|phrase| record.title.include?(phrase)}.nil?
-     record.errors[:title] << "Need a beter title"
-      
-   end 
-   
- end 
- 
-@@reqs = ["Won't Believe", "Secret", "Top[number]", "Guess"]
 end
