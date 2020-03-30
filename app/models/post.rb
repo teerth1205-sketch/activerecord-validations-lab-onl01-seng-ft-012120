@@ -6,10 +6,10 @@ class Post < ActiveRecord::Base
    validate :is_clickbait
 
  
- def is_clickbait
+ def is_clickbait(record)
   
-   if @@reqs.detect {|phrase| self.title.include?(phrase)}.nil?
-     self.errors[:title] << "Need a beter title"
+   if @@reqs.detect {|phrase| record.title.include?(phrase)}.nil?
+     record.errors[:title] << "Need a beter title"
       
    end 
    
