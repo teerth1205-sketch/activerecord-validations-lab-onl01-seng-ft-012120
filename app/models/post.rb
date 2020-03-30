@@ -8,14 +8,12 @@ class Post < ActiveRecord::Base
  
  def is_clickbait
   
-   if @@phrases.each {|phrase| self.title && self.title.downcase =~ phrase} 
-      return true
-   else 
-     return false
+   if reqs.detect {|phrase| self.title.include?(phrase)}.nil?
      self.errors[:title] << "Need a beter title"
+      
    end 
    
  end 
  
- @@phrases = [/won't believe/, /secret/, /top \d/, /guess/]
+reqs = ["Won't Believe", "Secret", "Top[number]", "Guess"]
 end
